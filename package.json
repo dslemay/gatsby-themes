@@ -1,0 +1,13 @@
+{
+  "name": "dslemay-gatsby-themes",
+  "version": "0.0.1",
+  "description": "A collection of base themes to use with Gatsby",
+  "main": "index.js",
+  "author": "Daniel Lemay <daniel@dslemay.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  },
+  "workspaces": ["packages/*"]
+}
