@@ -1,0 +1,17 @@
+{
+  "name": "gatsby-theme-dslemay-core",
+  "version": "0.0.1",
+  "description": "Base plugins for a Gatsby site",
+  "main": "index.js",
+  "author": "Daniel Lemay",
+  "license": "MIT",
+  "devDependencies": {
+    "gatsby": "^2.1.37"
+  },
+  "dependencies": {
+    "gatsby-plugin-react-helmet": "^3.0.10",
+    "gatsby-plugin-sharp": "^2.0.29",
+    "gatsby-plugin-sitemap": "^2.0.10",
+    "gatsby-transformer-sharp": "^2.1.17"
+  }
+}
