@@ -6,6 +6,10 @@
   "author": "Daniel Lemay <daniel@dslemay.com>",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dslemay/gatsby-themes"
+  },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
