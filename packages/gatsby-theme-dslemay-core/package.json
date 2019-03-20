@@ -5,6 +5,12 @@
   "main": "index.js",
   "author": "Daniel Lemay",
   "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "themes",
+    "react",
+    "tooling"
+  ],
   "devDependencies": {
     "gatsby": "^2.2.2"
   },
