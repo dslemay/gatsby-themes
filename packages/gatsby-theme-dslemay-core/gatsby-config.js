@@ -1,8 +1,15 @@
-module.exports = {
-  plugins: [
+module.exports = ({ sitemap } = {}) => {
+  const plugins = [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sitemap',
-  ],
+  ];
+
+  if (typeof sitemap === 'undefined' || sitemap === true) {
+    plugins.push('gatsby-plugin-sitemap');
+  }
+
+  return {
+    plugins,
+  };
 };
