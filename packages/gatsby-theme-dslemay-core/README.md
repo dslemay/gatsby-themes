@@ -19,9 +19,21 @@ Once installed, your `gatsby-config.js` will need to be updated to use the theme
 ```javascript
 // gatsby-config.js
 module.exports = {
-  __experimentalThemes: ['gatsby-theme-dslemay-core'],
+  __experimentalThemes: [
+    {
+      resolve: 'gatsby-theme-dslemay-core',
+      options: {
+        sitemap: true
+      }
+  ],
   ...
 }
 ```
 
 Gatsby will then merge the plugins defined in the package's gatsby-config onto yours. As a result, you do not need to install or manually add any of the packages listed above to your project.
+
+## Available options
+
+Options let you configure how the theme works with your project. Information about each option and any defaults is listed below.
+
+- `sitemap`: boolean. Determines whether to add the `gatsby-plugin-sitemap` to your plugins. Defaults to true. Please note that this plugin requires a `siteUrl` in your `siteMetadata` if enabled.
