@@ -1,5 +1,8 @@
 # Gatsby Themes - Daniel Lemay
 
+[![CircleCI](https://circleci.com/gh/dslemay/gatsby-themes.svg?style=svg)](https://circleci.com/gh/dslemay/gatsby-themes)
+[![codecov](https://codecov.io/gh/dslemay/gatsby-themes/branch/master/graph/badge.svg)](https://codecov.io/gh/dslemay/gatsby-themes)
+
 Gatsby themes provide a means to package reusable configuration, styles, and pages into a publishable package. They are installed as a dependency of the Gatsby site where they can then be extended in the Gatsby config.
 
 Gatsby Themes are currently under an experimental flag. For examples on how to use a given theme, please check that package's README.
