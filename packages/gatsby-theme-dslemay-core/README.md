@@ -23,7 +23,8 @@ module.exports = {
     {
       resolve: 'gatsby-theme-dslemay-core',
       options: {
-        sitemap: true
+        analytics: 'tracking-id' // Object or string
+        sitemap: true // Boolean
       }
   ],
   ...
@@ -36,4 +37,7 @@ Gatsby will then merge the plugins defined in the package's gatsby-config onto y
 
 Options let you configure how the theme works with your project. Information about each option and any defaults is listed below.
 
+- `analytics`: string or object. Adds the [gatsby-plugin-google-analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/) plugin to your configuration.
+  - String: Must be your Google Analytics tracking id. Sets the `anonymize` option to true.
+  - Object: Pass in the same options listed in the plugin docs. Anonymize is defaulted to true, but can be overriden by your configuration object.
 - `sitemap`: boolean. Determines whether to add the `gatsby-plugin-sitemap` to your plugins. Defaults to true. Please note that this plugin requires a `siteUrl` in your `siteMetadata` if enabled.
