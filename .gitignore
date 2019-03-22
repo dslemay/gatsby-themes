@@ -1,5 +1,9 @@
 node_modules/
-coverage/
 lerna-debug.log
 yarn-error.log
 *.swp
+
+# Generated files
+coverage/
+.cache/
+public/
