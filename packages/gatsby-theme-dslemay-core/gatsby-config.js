@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+
 const gaBase = {
   resolve: 'gatsby-plugin-google-analytics',
   options: {
@@ -10,6 +12,21 @@ module.exports = ({ analytics, sitemap } = {}) => {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      option: {
+        name: 'data',
+        path: `${__dirname}/data`,
+        ignore: ['**/.*'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      option: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
   ];
 
   if (typeof sitemap === 'undefined' || sitemap === true) {
