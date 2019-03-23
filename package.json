@@ -30,14 +30,15 @@
     "prettier": "^1.16.4"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "site"
   ],
   "scripts": {
     "lint": "eslint packages",
     "lint-staged": "lint-staged",
     "prettier": "is-ci prettier:check prettier:format",
-    "prettier:check": "prettier --check ./**/*.{js,md}",
-    "prettier:format": "prettier --write ./**/*.{js,md}",
+    "prettier:check": "prettier --check \"**/*.{js,md}\" --ignore-path .gitignore",
+    "prettier:format": "prettier --write \"**/*.{js,md}\" --ignore-path .gitignore",
     "test": "is-ci test:coverage test:watch",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
