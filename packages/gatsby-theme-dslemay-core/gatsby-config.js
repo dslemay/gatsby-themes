@@ -20,7 +20,7 @@ module.exports = ({ analytics, sitemap } = {}) => {
     },
     {
       resolve: 'gatsby-source-filesystem',
-      option: {
+      options: {
         name: 'data',
         path: `${__dirname}/data`,
         ignore: ['**/.*'],
@@ -28,7 +28,7 @@ module.exports = ({ analytics, sitemap } = {}) => {
     },
     {
       resolve: 'gatsby-source-filesystem',
-      option: {
+      options: {
         name: 'images',
         path: `${__dirname}/src/images`,
       },
