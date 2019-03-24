@@ -13,6 +13,12 @@ module.exports = ({ analytics, sitemap } = {}) => {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-compile-es6-packages',
+      options: {
+        modules: ['gatsby-theme-dslemay-core'],
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       option: {
         name: 'data',
