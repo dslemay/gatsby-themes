@@ -10,6 +10,12 @@ module.exports = ({ analytics, sitemap } = {}) => {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-plugin-compile-es6-packages',
+      options: {
+        modules: ['gatsby-theme-dslemay-core'],
+      },
+    },
   ];
 
   if (typeof sitemap === 'undefined' || sitemap === true) {
