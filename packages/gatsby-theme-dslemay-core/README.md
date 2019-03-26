@@ -7,6 +7,7 @@ This theme installs some core Gatsby plugins used by many sites. This resolves t
 - [gatsby-transformer-sharp](https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/)
 - [gatsby-plugin-sitemap](https://www.gatsbyjs.org/packages/gatsby-plugin-sitemap/)
 - [gatsby-plugin-google-analytics](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
+- [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/)
 
 ## Installation and Usage
 
@@ -33,6 +34,10 @@ module.exports = {
 ```
 
 Gatsby will then merge the plugins defined in the package's gatsby-config onto yours. As a result, you do not need to install or manually add any of the packages listed above to your project.
+
+### Gatsby Source Filesystem
+
+Out of the box, the theme will connect `src/data` and `src/images` to GraphQL. The theme will create these folders automatically if they do not exist. Any files beginning with a `.` in the data folder will be ignored. Since `gatsby-source-filesystem` is installed as a dependency of the theme, you may also add more folders in your `gatsby-config.js` without needing to manually install the package separately.
 
 ## Available options
 
