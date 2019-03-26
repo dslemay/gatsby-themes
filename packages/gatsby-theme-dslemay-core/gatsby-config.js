@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-
 const gaBase = {
   resolve: 'gatsby-plugin-google-analytics',
   options: {
