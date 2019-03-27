@@ -16,6 +16,21 @@ module.exports = ({ analytics, sitemap } = {}) => {
         modules: ['gatsby-theme-dslemay-core'],
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: 'src/data',
+        ignore: ['**/.*'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: 'src/images',
+      },
+    },
   ];
 
   if (typeof sitemap === 'undefined' || sitemap === true) {
