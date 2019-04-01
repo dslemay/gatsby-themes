@@ -1,4 +1,4 @@
-const findPluginObject = require('../plugin-testing');
+const { findPluginObject } = require('../plugin-testing');
 
 describe('Find Plugin Object utility', () => {
   const PLUGIN_NAME = 'sample-plugin';

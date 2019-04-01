@@ -34,7 +34,7 @@
     "site"
   ],
   "scripts": {
-    "lint": "eslint packages",
+    "lint": "eslint packages --ignore-path .gitignore",
     "lint-staged": "lint-staged",
     "prettier": "is-ci prettier:check prettier:format",
     "prettier:check": "prettier --check \"**/*.{js,md}\" --ignore-path .gitignore",

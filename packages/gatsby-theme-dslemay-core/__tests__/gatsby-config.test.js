@@ -1,5 +1,14 @@
 const gatsbyConfig = require('../gatsby-config');
-const findPluginObject = require('../plugin-testing');
+const { findPluginString, findPluginObject } = require('../plugin-testing');
+const {
+  hasDependencies: hasDependenciesMock,
+  hasDevDependencies: hasDevDependenciesMock,
+} = require('../utils');
+
+jest.mock('../utils', () => ({
+  hasDependencies: jest.fn(),
+  hasDevDependencies: jest.fn(),
+}));
 
 describe('Gatsby Plugin Sitemap', () => {
   it('the sitemap option defaults to true and provides the sitemap plugin', () => {
@@ -63,5 +72,28 @@ describe('Gatsby Plugin Google Analytics', () => {
     const plugin = findAnalytics(config);
 
     expect(plugin.options).toEqual(overrideSettings);
+  });
+});
+
+describe('Gatsby Plugin Flow', () => {
+  const hasFlow = findPluginString('gatsby-plugin-flow');
+
+  it('adds the plugin if flow-bin is in the package dependencies', () => {
+    hasDependenciesMock.mockImplementationOnce(() => true);
+    const config = gatsbyConfig();
+    expect(hasFlow(config)).toBe(true);
+  });
+
+  it('adds the plugin if flow-bin is in the package devDependencies', () => {
+    hasDevDependenciesMock.mockImplementationOnce(() => true);
+    const config = gatsbyConfig();
+    expect(hasFlow(config)).toBe(true);
+  });
+
+  it('does not add the plugin if flow-bin is not in the package devDependencies or dependencies', () => {
+    hasDependenciesMock.mockImplementationOnce(() => false);
+    hasDevDependenciesMock.mockImplementationOnce(() => false);
+    const config = gatsbyConfig();
+    expect(hasFlow(config)).toBe(false);
   });
 });
