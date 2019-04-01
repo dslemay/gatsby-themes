@@ -13,4 +13,7 @@ const findPluginObject = pluginName => config => {
   return plugins.find(p => p.resolve === pluginName);
 };
 
-module.exports = findPluginObject;
+const findPluginString = pluginName => config =>
+  config.plugins.includes(pluginName);
+
+module.exports = { findPluginString, findPluginObject };
