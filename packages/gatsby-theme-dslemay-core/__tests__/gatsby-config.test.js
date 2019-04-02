@@ -10,6 +10,11 @@ jest.mock('../utils', () => ({
   hasDevDependencies: jest.fn(),
 }));
 
+beforeEach(() => {
+  hasDependenciesMock.mockReset();
+  hasDevDependenciesMock.mockReset();
+});
+
 describe('Gatsby Plugin Sitemap', () => {
   it('the sitemap option defaults to true and provides the sitemap plugin', () => {
     const config = gatsbyConfig();
@@ -79,15 +84,32 @@ describe('Gatsby Plugin Flow', () => {
   const hasFlow = findPluginString('gatsby-plugin-flow');
 
   it('adds the plugin if flow-bin is in the package devDependencies', () => {
-    hasDevDependenciesMock.mockImplementationOnce(() => true);
+    hasDevDependenciesMock.mockImplementation(() => true);
     const config = gatsbyConfig();
     expect(hasFlow(config)).toBe(true);
   });
 
   it('does not add the plugin if flow-bin is not in the package devDependencies or dependencies', () => {
-    hasDependenciesMock.mockImplementationOnce(() => false);
-    hasDevDependenciesMock.mockImplementationOnce(() => false);
+    hasDependenciesMock.mockImplementation(() => false);
+    hasDevDependenciesMock.mockImplementation(() => false);
     const config = gatsbyConfig();
     expect(hasFlow(config)).toBe(false);
+  });
+});
+
+describe('Gatsby Plugin TypeScript', () => {
+  const hasTS = findPluginString('gatsby-plugin-typescript');
+
+  it('adds the plugin if typescript is in the package devDependencies', () => {
+    hasDevDependenciesMock.mockImplementation(() => true);
+    const config = gatsbyConfig();
+    expect(hasTS(config)).toBe(true);
+  });
+
+  it('does not add the plugin if typescript is not in the package devDependencies or dependencies', () => {
+    hasDependenciesMock.mockImplementation(() => false);
+    hasDevDependenciesMock.mockImplementation(() => false);
+    const config = gatsbyConfig();
+    expect(hasTS(config)).toBe(false);
   });
 });
