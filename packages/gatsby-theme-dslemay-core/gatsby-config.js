@@ -66,7 +66,7 @@ module.exports = ({ analytics, sitemap } = {}) => {
     plugins.push('gatsby-plugin-flow');
   }
 
-  if (hasDependencies('typescript') || hasDevDependencies('typescript')) {
+  if (hasDevDependencies('typescript')) {
     plugins.push('gatsby-plugin-typescript');
   }
 

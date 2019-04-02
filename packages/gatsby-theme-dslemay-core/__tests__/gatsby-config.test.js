@@ -100,12 +100,6 @@ describe('Gatsby Plugin Flow', () => {
 describe('Gatsby Plugin TypeScript', () => {
   const hasTS = findPluginString('gatsby-plugin-typescript');
 
-  it('adds the plugin if typescript is in the package dependencies', () => {
-    hasDependenciesMock.mockImplementation(() => true);
-    const config = gatsbyConfig();
-    expect(hasTS(config)).toBe(true);
-  });
-
   it('adds the plugin if typescript is in the package devDependencies', () => {
     hasDevDependenciesMock.mockImplementation(() => true);
     const config = gatsbyConfig();
