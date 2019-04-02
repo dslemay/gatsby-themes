@@ -59,6 +59,8 @@ Analytics is off by default. The configuration accepts a string or an object to 
 
 Gatsby has a number of plugins which may be added dependening on other dependencies you use in your project. For example `gatsby-plugin-flow` will add the necessary Babel config to strip out flow types, and `gatsby-plugin-emotion` will handle the Babel presets to use Emotion's css prop without needing to use the JSX pragma at the top of each file. The following plugins will be added automatically if you have the corresponding dependency installed.
 
-| Dependency | Gatsby Plugin        |
-| ---------- | -------------------- |
-| `flow-bin` | `gatsby-plugin-flow` |
+The installed column indicates whether the config checks for the package in `dependencies`, `devDependencies` or both.
+
+| Dependency | Installed     | Gatsby Plugin      |
+| ---------- | ------------- | ------------------ |
+| flow-bin   | devDependency | gatsby-plugin-flow |
