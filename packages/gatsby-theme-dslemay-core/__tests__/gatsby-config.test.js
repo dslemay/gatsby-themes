@@ -78,12 +78,6 @@ describe('Gatsby Plugin Google Analytics', () => {
 describe('Gatsby Plugin Flow', () => {
   const hasFlow = findPluginString('gatsby-plugin-flow');
 
-  it('adds the plugin if flow-bin is in the package dependencies', () => {
-    hasDependenciesMock.mockImplementationOnce(() => true);
-    const config = gatsbyConfig();
-    expect(hasFlow(config)).toBe(true);
-  });
-
   it('adds the plugin if flow-bin is in the package devDependencies', () => {
     hasDevDependenciesMock.mockImplementationOnce(() => true);
     const config = gatsbyConfig();
