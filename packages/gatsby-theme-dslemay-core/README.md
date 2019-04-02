@@ -61,6 +61,7 @@ Gatsby has a number of plugins which may be added dependening on other dependenc
 
 The installed column indicates whether the config checks for the package in `dependencies`, `devDependencies` or both.
 
-| Dependency | Installed     | Gatsby Plugin      |
-| ---------- | ------------- | ------------------ |
-| flow-bin   | devDependency | gatsby-plugin-flow |
+| Dependency | Installed     | Gatsby Plugin            |
+| ---------- | ------------- | ------------------------ |
+| flow-bin   | devDependency | gatsby-plugin-flow       |
+| typescript | devDependency | gatsby-plugin-typescript |
