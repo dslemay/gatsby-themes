@@ -1,4 +1,4 @@
-const { hasDependencies, hasDevDependencies } = require('./utils');
+const { hasDevDependencies } = require('./utils');
 
 const gaBase = {
   resolve: 'gatsby-plugin-google-analytics',
@@ -62,7 +62,7 @@ module.exports = ({ analytics, sitemap } = {}) => {
     });
   }
 
-  if (hasDependencies('flow-bin') || hasDevDependencies('flow-bin')) {
+  if (hasDevDependencies('flow-bin')) {
     plugins.push('gatsby-plugin-flow');
   }
 
