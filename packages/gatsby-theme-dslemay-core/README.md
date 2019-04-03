@@ -13,8 +13,8 @@ This theme installs some core Gatsby plugins used by many sites. This resolves t
 
 To install this theme run the command below.
 
-- Yarn `yarn add -D gatsby-theme-dslemay-core`
-- NPM `npm i -D gatsby-theme-dslemay-core`
+- Yarn: `yarn add gatsby-theme-dslemay-core`
+- NPM: `npm i gatsby-theme-dslemay-core`
 
 Once installed, your `gatsby-config.js` will need to be updated to use the theme. This can be done by adding the following code.
 
