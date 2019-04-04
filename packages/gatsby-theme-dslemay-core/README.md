@@ -13,8 +13,8 @@ This theme installs some core Gatsby plugins used by many sites. This resolves t
 
 To install this theme run the command below.
 
-- Yarn `yarn add -D gatsby-theme-dslemay-core`
-- NPM `npm i -D gatsby-theme-dslemay-core`
+- Yarn: `yarn add gatsby-theme-dslemay-core`
+- NPM: `npm i gatsby-theme-dslemay-core`
 
 Once installed, your `gatsby-config.js` will need to be updated to use the theme. This can be done by adding the following code.
 
@@ -39,21 +39,28 @@ Gatsby will then merge the plugins defined in the package's gatsby-config onto y
 
 Out of the box, the theme will connect `src/data` and `src/images` to GraphQL. The theme will create these folders automatically if they do not exist. Any files beginning with a `.` in the data folder will be ignored. Since `gatsby-source-filesystem` is installed as a dependency of the theme, you may also add more folders in your `gatsby-config.js` without needing to manually install the package separately.
 
-## Available options
+## API
 
-Options let you configure how the theme works with your project. Information about each option and any defaults is listed below.
+This theme exposes several options for configuring its behavior. These can be configured within the `options` object when theme is resolved as shown in the installation instructions above.
 
-| Option key  | Type(s)          | Default     | Description                                                                           |
-| ----------- | ---------------- | ----------- | ------------------------------------------------------------------------------------- |
-| `analytics` | String or Object | `undefined` | Adds Google Analytics to your configuration. Additional config details listed below   |
-| `sitemap`   | `boolean`        | `true`      | Generates a sitemap. **Note**: Requires a `siteUrl` in your `siteMetadata` if enabled |
+### Google analytics
 
-### Configuring Google Analytics
+- **Option key:** `analytics`
+- **Type:** `String` or `Object`
+- **Default:** `undefined`
 
-Analytics is off by default. The configuration accepts a string or an object to enable Google Analytics tracking. The configuration object accepts all of the keys listed in the [Gatsby plugin](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
+If enabled, Gatsby will add Google Analytics tracking configuration to your pages during production builds. It is off by default. The configuration accepts a string or an object to enable Google Analytics tracking. The configuration object accepts all of the keys listed in the [Gatsby plugin](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
 
 - String: Must be your Google Analytics tracking id. Sets the `anonymize` option to true.
 - Object: Pass in the same options listed in the plugin docs. Anonymize is defaulted to true, but can be overriden by your configuration object.
+
+### Sitemap Generation
+
+- **Option key:** `sitemap`
+- **Type:** `boolean`
+- **Default:** `true`
+
+If enabled, Gatsby will generate a sitemap for your site during production builds. **Note**: This requires a `siteUrl` in your `siteMetadata` if enabled. Failing to set this property in your `gatsby-config.js` will result in a build error.
 
 ## Conditionally added plugins
 
