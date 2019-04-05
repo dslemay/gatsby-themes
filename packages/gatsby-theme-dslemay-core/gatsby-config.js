@@ -1,5 +1,10 @@
 const semver = require('semver');
-const { hasDependencies, hasDevDependencies, pkg } = require('./utils');
+const {
+  hasDependencies,
+  hasDevDependencies,
+  pkg,
+  stripSemverRanges,
+} = require('./utils');
 
 const gaBase = {
   resolve: 'gatsby-plugin-google-analytics',
@@ -72,8 +77,11 @@ module.exports = ({ analytics, sitemap } = {}) => {
   }
 
   if (
-    hasDependencies('emotion') &&
-    semver.clean(pkg.dependencies.emotion).split('.')[0] >= 10
+    hasDependencies('@emotion/core') &&
+    semver.satisfies(
+      stripSemverRanges(pkg.dependencies['@emotion/core']),
+      '>= 10.0.0',
+    )
   ) {
     plugins.push('gatsby-plugin-emotion');
   }

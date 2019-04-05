@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 jest.mock('../utils', () => ({
+  ...jest.requireActual('../utils'),
   hasDependencies: jest.fn(() => false),
   hasDevDependencies: jest.fn(() => false),
   get pkg() {
@@ -129,7 +130,7 @@ describe('Gatsby Plugin Emotion', () => {
     mockDeps({ dep: true });
     const utils = require('../utils');
     const spy = jest.spyOn(utils, 'pkg', 'get');
-    spy.mockReturnValueOnce({ dependencies: { emotion: '10.1.0' } });
+    spy.mockReturnValueOnce({ dependencies: { '@emotion/core': '10.1.0' } });
     const config = require('../gatsby-config')();
     expect(hasEmotion(config)).toBe(true);
     spy.mockRestore();
@@ -139,7 +140,7 @@ describe('Gatsby Plugin Emotion', () => {
     mockDeps({ dep: true });
     const utils = require('../utils');
     const spy = jest.spyOn(utils, 'pkg', 'get');
-    spy.mockReturnValueOnce({ dependencies: { emotion: '9.1.0' } });
+    spy.mockReturnValueOnce({ dependencies: { '@emotion/core': '9.1.0' } });
     const config = require('../gatsby-config')();
     expect(hasEmotion(config)).toBe(false);
     spy.mockRestore();
