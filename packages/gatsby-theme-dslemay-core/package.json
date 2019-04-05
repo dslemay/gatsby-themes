@@ -11,6 +11,12 @@
     "react",
     "tooling"
   ],
+  "files": [
+    "gatsby-config.js",
+    "gatsby-node.js",
+    "utils.js",
+    "index.js"
+  ],
   "devDependencies": {
     "gatsby": "^2.2.2",
     "react": "^16.8.4",
