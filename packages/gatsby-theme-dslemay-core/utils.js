@@ -15,4 +15,5 @@ const hasDevDependencies = hasPkgSubProp('devDependencies');
 module.exports = {
   hasDependencies,
   hasDevDependencies,
+  pkg,
 };
