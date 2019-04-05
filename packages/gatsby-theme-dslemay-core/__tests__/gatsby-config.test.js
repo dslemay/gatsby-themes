@@ -3,7 +3,10 @@ jest.mock('../utils', () => ({
   hasDependencies: jest.fn(() => false),
   hasDevDependencies: jest.fn(() => false),
   get pkg() {
-    return {};
+    return {
+      dependencies: {},
+      devDependencies: {},
+    };
   },
 }));
 const { findPluginString, findPluginObject } = require('../plugin-testing');
@@ -116,5 +119,35 @@ describe('Gatsby Plugin TypeScript', () => {
     mockDeps({ dev: false, dep: false });
     const config = require('../gatsby-config')();
     expect(hasTS(config)).toBe(false);
+  });
+});
+
+describe('Gatsby Plugin Emotion', () => {
+  const hasEmotion = findPluginString('gatsby-plugin-emotion');
+
+  it('adds the plugin if Emotion >= 10 is in the package dependencies', () => {
+    mockDeps({ dep: true });
+    const utils = require('../utils');
+    const spy = jest.spyOn(utils, 'pkg', 'get');
+    spy.mockReturnValueOnce({ dependencies: { emotion: '10.1.0' } });
+    const config = require('../gatsby-config')();
+    expect(hasEmotion(config)).toBe(true);
+    spy.mockRestore();
+  });
+
+  it('does not add the plugin if Emotion < 10 is in the package dependencies', () => {
+    mockDeps({ dep: true });
+    const utils = require('../utils');
+    const spy = jest.spyOn(utils, 'pkg', 'get');
+    spy.mockReturnValueOnce({ dependencies: { emotion: '9.1.0' } });
+    const config = require('../gatsby-config')();
+    expect(hasEmotion(config)).toBe(false);
+    spy.mockRestore();
+  });
+
+  it('does not add the plugin if Emotion is not in the package dependencies', () => {
+    mockDeps({ dep: false });
+    const config = require('../gatsby-config')();
+    expect(hasEmotion(config)).toBe(false);
   });
 });
