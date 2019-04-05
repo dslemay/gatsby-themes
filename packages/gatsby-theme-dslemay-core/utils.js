@@ -12,8 +12,11 @@ const hasPkgSubProp = pkgProp => props =>
 const hasDependencies = hasPkgSubProp('dependencies');
 const hasDevDependencies = hasPkgSubProp('devDependencies');
 
+const stripSemverRanges = range => range.replace(/[>=<^~|]/g, '');
+
 module.exports = {
   hasDependencies,
   hasDevDependencies,
   pkg,
+  stripSemverRanges
 };
