@@ -1,4 +1,5 @@
-const { hasDevDependencies } = require('./utils');
+const semver = require('semver');
+const { hasDependencies, hasDevDependencies, pkg } = require('./utils');
 
 const gaBase = {
   resolve: 'gatsby-plugin-google-analytics',
@@ -68,6 +69,13 @@ module.exports = ({ analytics, sitemap } = {}) => {
 
   if (hasDevDependencies('typescript')) {
     plugins.push('gatsby-plugin-typescript');
+  }
+
+  if (
+    hasDependencies('emotion') &&
+    semver.clean(pkg.dependencies.emotion).split('.')[0] >= 10
+  ) {
+    plugins.push('gatsby-plugin-emotion');
   }
 
   return {
