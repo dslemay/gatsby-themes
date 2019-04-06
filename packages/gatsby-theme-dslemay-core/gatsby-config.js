@@ -1,4 +1,10 @@
-const { hasDevDependencies } = require('./utils');
+const semver = require('semver');
+const {
+  hasDependencies,
+  hasDevDependencies,
+  pkg,
+  stripSemverRanges,
+} = require('./utils');
 
 const gaBase = {
   resolve: 'gatsby-plugin-google-analytics',
@@ -68,6 +74,16 @@ module.exports = ({ analytics, sitemap } = {}) => {
 
   if (hasDevDependencies('typescript')) {
     plugins.push('gatsby-plugin-typescript');
+  }
+
+  if (
+    hasDependencies('@emotion/core') &&
+    semver.satisfies(
+      stripSemverRanges(pkg.dependencies['@emotion/core']),
+      '>= 10.0.0',
+    )
+  ) {
+    plugins.push('gatsby-plugin-emotion');
   }
 
   return {

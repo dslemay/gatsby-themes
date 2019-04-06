@@ -1,33 +1,44 @@
-const gatsbyConfig = require('../gatsby-config');
-const { findPluginString, findPluginObject } = require('../plugin-testing');
-const {
-  hasDependencies: hasDependenciesMock,
-  hasDevDependencies: hasDevDependenciesMock,
-} = require('../utils');
-
+/* eslint-disable global-require */
 jest.mock('../utils', () => ({
-  hasDependencies: jest.fn(),
-  hasDevDependencies: jest.fn(),
+  ...jest.requireActual('../utils'),
+  hasDependencies: jest.fn(() => false),
+  hasDevDependencies: jest.fn(() => false),
+  get pkg() {
+    return {
+      dependencies: {},
+      devDependencies: {},
+    };
+  },
 }));
+const { findPluginString, findPluginObject } = require('../plugin-testing');
+
+let hasDependenciesMock;
+let hasDevDependenciesMock;
 
 beforeEach(() => {
-  hasDependenciesMock.mockReset();
-  hasDevDependenciesMock.mockReset();
+  jest.resetModules();
+  hasDependenciesMock = require('../utils').hasDependencies;
+  hasDevDependenciesMock = require('../utils').hasDevDependencies;
 });
+
+const mockDeps = ({ dep = false, dev = false }) => {
+  hasDependenciesMock.mockImplementation(() => dep);
+  hasDevDependenciesMock.mockImplementation(() => dev);
+};
 
 describe('Gatsby Plugin Sitemap', () => {
   it('the sitemap option defaults to true and provides the sitemap plugin', () => {
-    const config = gatsbyConfig();
+    const config = require('../gatsby-config')();
     expect(config.plugins.includes('gatsby-plugin-sitemap')).toBeTruthy();
   });
 
   it('provides the sitemap plugin when the sitemap option is true', () => {
-    const config = gatsbyConfig({ sitemap: true });
+    const config = require('../gatsby-config')({ sitemap: true });
     expect(config.plugins.includes('gatsby-plugin-sitemap')).toBeTruthy();
   });
 
   it('does not provide the sitemap plugin when the sitemap option is false', () => {
-    const config = gatsbyConfig({ sitemap: false });
+    const config = require('../gatsby-config')({ sitemap: false });
     expect(config.plugins.includes('gatsby-plugin-sitemap')).toBeFalsy();
   });
 });
@@ -36,7 +47,7 @@ describe('Gatsby Plugin Google Analytics', () => {
   const findAnalytics = findPluginObject('gatsby-plugin-google-analytics');
 
   it('does not add the analytics plugin if no option is passed', () => {
-    const config = gatsbyConfig();
+    const config = require('../gatsby-config')();
     const plugin = findAnalytics(config);
     expect(plugin).toBeUndefined();
   });
@@ -47,7 +58,7 @@ describe('Gatsby Plugin Google Analytics', () => {
       trackingId,
       anonymize: true,
     };
-    const config = gatsbyConfig({ analytics: trackingId });
+    const config = require('../gatsby-config')({ analytics: trackingId });
     const plugin = findAnalytics(config);
 
     expect(plugin).toBeDefined();
@@ -62,7 +73,7 @@ describe('Gatsby Plugin Google Analytics', () => {
       ...settings,
       anonymize: true,
     };
-    const config = gatsbyConfig({ analytics: settings });
+    const config = require('../gatsby-config')({ analytics: settings });
     const plugin = findAnalytics(config);
 
     expect(plugin.options).toEqual(settingsExpected);
@@ -73,7 +84,7 @@ describe('Gatsby Plugin Google Analytics', () => {
       trackingId: 'another-key',
       anonymize: false,
     };
-    const config = gatsbyConfig({ analytics: overrideSettings });
+    const config = require('../gatsby-config')({ analytics: overrideSettings });
     const plugin = findAnalytics(config);
 
     expect(plugin.options).toEqual(overrideSettings);
@@ -84,15 +95,14 @@ describe('Gatsby Plugin Flow', () => {
   const hasFlow = findPluginString('gatsby-plugin-flow');
 
   it('adds the plugin if flow-bin is in the package devDependencies', () => {
-    hasDevDependenciesMock.mockImplementation(() => true);
-    const config = gatsbyConfig();
+    mockDeps({ dev: true });
+    const config = require('../gatsby-config')();
     expect(hasFlow(config)).toBe(true);
   });
 
   it('does not add the plugin if flow-bin is not in the package devDependencies or dependencies', () => {
-    hasDependenciesMock.mockImplementation(() => false);
-    hasDevDependenciesMock.mockImplementation(() => false);
-    const config = gatsbyConfig();
+    mockDeps({ dev: false, dep: false });
+    const config = require('../gatsby-config')();
     expect(hasFlow(config)).toBe(false);
   });
 });
@@ -101,15 +111,44 @@ describe('Gatsby Plugin TypeScript', () => {
   const hasTS = findPluginString('gatsby-plugin-typescript');
 
   it('adds the plugin if typescript is in the package devDependencies', () => {
-    hasDevDependenciesMock.mockImplementation(() => true);
-    const config = gatsbyConfig();
+    mockDeps({ dev: true });
+    const config = require('../gatsby-config')();
     expect(hasTS(config)).toBe(true);
   });
 
   it('does not add the plugin if typescript is not in the package devDependencies or dependencies', () => {
-    hasDependenciesMock.mockImplementation(() => false);
-    hasDevDependenciesMock.mockImplementation(() => false);
-    const config = gatsbyConfig();
+    mockDeps({ dev: false, dep: false });
+    const config = require('../gatsby-config')();
     expect(hasTS(config)).toBe(false);
+  });
+});
+
+describe('Gatsby Plugin Emotion', () => {
+  const hasEmotion = findPluginString('gatsby-plugin-emotion');
+
+  it('adds the plugin if Emotion >= 10 is in the package dependencies', () => {
+    mockDeps({ dep: true });
+    const utils = require('../utils');
+    const spy = jest.spyOn(utils, 'pkg', 'get');
+    spy.mockReturnValueOnce({ dependencies: { '@emotion/core': '10.1.0' } });
+    const config = require('../gatsby-config')();
+    expect(hasEmotion(config)).toBe(true);
+    spy.mockRestore();
+  });
+
+  it('does not add the plugin if Emotion < 10 is in the package dependencies', () => {
+    mockDeps({ dep: true });
+    const utils = require('../utils');
+    const spy = jest.spyOn(utils, 'pkg', 'get');
+    spy.mockReturnValueOnce({ dependencies: { '@emotion/core': '9.1.0' } });
+    const config = require('../gatsby-config')();
+    expect(hasEmotion(config)).toBe(false);
+    spy.mockRestore();
+  });
+
+  it('does not add the plugin if Emotion is not in the package dependencies', () => {
+    mockDeps({ dep: false });
+    const config = require('../gatsby-config')();
+    expect(hasEmotion(config)).toBe(false);
   });
 });
