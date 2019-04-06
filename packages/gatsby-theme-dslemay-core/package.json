@@ -3,7 +3,12 @@
   "version": "0.2.0",
   "description": "Base plugins for a Gatsby site",
   "main": "index.js",
-  "author": "Daniel Lemay",
+  "author": "Daniel Lemay <daniel@dslemay.com>",
+  "bugs": {
+    "url": "https://github.com/dslemay/gatsby-themes/issues"
+  },
+  "homepage": "https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core#readme",
+  "repository": "https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core",
   "license": "MIT",
   "keywords": [
     "gatsby",
