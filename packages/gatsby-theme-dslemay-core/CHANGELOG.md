@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/compare/gatsby-theme-dslemay-core@0.2.0...gatsby-theme-dslemay-core@0.3.0) (2019-04-06)
+
+### Bug Fixes
+
+- flow plugin check ([#9](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/issues/9)) ([26ca204](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/26ca204))
+
+### Features
+
+- add flow plugin based on user's package.json ([#6](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/issues/6)) ([7237376](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/7237376))
+- add gatsby plugin typescript ([#8](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/issues/8)) ([d5eed66](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/d5eed66))
+
 # [0.2.0](https://github.com/dslemay/gatsby-themes/compare/gatsby-theme-dslemay-core@0.1.0...gatsby-theme-dslemay-core@0.2.0) (2019-03-27)
 
 ### Bug Fixes

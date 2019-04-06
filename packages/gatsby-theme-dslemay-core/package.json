@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-dslemay-core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Base plugins for a Gatsby site",
   "main": "index.js",
   "author": "Daniel Lemay <daniel@dslemay.com>",
