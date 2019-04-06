@@ -34,6 +34,7 @@
     "site"
   ],
   "scripts": {
+    "lerna": "lerna",
     "lint": "eslint packages --ignore-path .gitignore",
     "lint-staged": "lint-staged",
     "prettier": "is-ci prettier:check prettier:format",
