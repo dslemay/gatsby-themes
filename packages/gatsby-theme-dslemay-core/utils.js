@@ -18,5 +18,5 @@ module.exports = {
   hasDependencies,
   hasDevDependencies,
   pkg,
-  stripSemverRanges
+  stripSemverRanges,
 };
