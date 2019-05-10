@@ -1,5 +1,6 @@
-const mockMkdirp = require('mkdirp');
 const mockFs = require('fs');
+
+const mockMkdirp = require('mkdirp');
 
 const { onPreBootstrap } = require('../gatsby-node');
 
@@ -39,7 +40,6 @@ describe('onPreBootstrap', () => {
   it('creates directories if the directory does not exist', () => {
     onPreBootstrap(mockConfig);
     mockFs.existsSync.mockImplementation(() => false);
-    expect(mockMkdirp.sync).toBeCalled();
     expect(mockMkdirp.sync).toBeCalledTimes(2);
   });
 });

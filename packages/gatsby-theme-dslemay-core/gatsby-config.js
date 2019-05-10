@@ -1,4 +1,5 @@
 const semver = require('semver');
+
 const {
   hasDependencies,
   hasDevDependencies,
