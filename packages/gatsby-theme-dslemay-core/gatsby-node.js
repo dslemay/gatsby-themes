@@ -1,6 +1,7 @@
 const fs = require('fs');
-const mkdirp = require('mkdirp');
 const path = require('path');
+
+const mkdirp = require('mkdirp');
 
 /* Check that the folders used by source-filesystem plugin exist.
  * If they do not, they will be created.

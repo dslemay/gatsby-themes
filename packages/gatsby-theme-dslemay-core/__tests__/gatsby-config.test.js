@@ -12,8 +12,7 @@ jest.mock('../utils', () => ({
 }));
 const { findPluginString, findPluginObject } = require('../plugin-testing');
 
-let hasDependenciesMock;
-let hasDevDependenciesMock;
+let hasDependenciesMock, hasDevDependenciesMock;
 
 beforeEach(() => {
   jest.resetModules();
