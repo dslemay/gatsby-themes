@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 jest.mock('read-pkg-up', () => ({
-  sync: jest.fn(() => ({ pkg: {} })),
+  sync: jest.fn(() => ({ package: {} })),
 }));
 
 let readPkgUpSyncMock;
@@ -11,7 +11,7 @@ beforeEach(() => {
 });
 
 const mockPkg = (pkg = {}) => {
-  readPkgUpSyncMock.mockImplementationOnce(() => ({ pkg }));
+  readPkgUpSyncMock.mockImplementationOnce(() => ({ package: pkg }));
 };
 
 describe('Package.json utils', () => {

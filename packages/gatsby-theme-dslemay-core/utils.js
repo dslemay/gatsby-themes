@@ -2,7 +2,7 @@ const arrify = require('arrify');
 const has = require('lodash.has');
 const readPkgUp = require('read-pkg-up');
 
-const { pkg } = readPkgUp.sync();
+const { package: pkg } = readPkgUp.sync();
 
 const hasPkgProp = props => arrify(props).some(prop => has(pkg, prop));
 
