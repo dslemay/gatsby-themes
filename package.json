@@ -19,7 +19,7 @@
     "is-ci-cli": "^1.1.1",
     "jest": "^24.5.0",
     "lerna": "^3.13.1",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^9.2.5",
     "prettier": "^1.16.4"
   },
   "workspaces": [
