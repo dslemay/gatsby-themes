@@ -11,8 +11,8 @@
     "url": "https://github.com/dslemay/gatsby-themes"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.5.2",
-    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "eslint": "5.15.3",
     "eslint-config-dslemay": "^1.1.2",
     "husky": "^1.3.1",
