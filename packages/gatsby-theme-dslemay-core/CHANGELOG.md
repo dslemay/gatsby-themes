@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/compare/gatsby-theme-dslemay-core@0.3.0...gatsby-theme-dslemay-core@0.3.1) (2019-09-02)
+
+### Bug Fixes
+
+- **deps:** update arrify to 2.0.1 ([d0ae522](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/d0ae522))
+- **deps:** update gatsby-plugin-compile-es6-packages to 2.1.0 ([20fed8c](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/20fed8c))
+- **deps:** update gatsby-plugin-emotion to 4.1.5 ([0aceb32](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/0aceb32))
+- **deps:** update gatsby-plugin-flow to 1.1.5 ([8ee7a20](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/8ee7a20))
+- **deps:** update gatsby-plugin-google-analytics to 2.1.13 ([ad00494](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/ad00494))
+- **deps:** update gatsby-plugin-react-helmet to 3.1.6 ([88707b8](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/88707b8))
+- **deps:** update gatsby-plugin-sharp to 2.2.19 ([5e04ab9](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/5e04ab9))
+- **deps:** update gatsby-plugin-sitemap to 2.2.10 ([b9e4f22](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/b9e4f22))
+- **deps:** update gatsby-plugin-typescript to 2.1.6 ([1b269df](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/1b269df))
+- **deps:** update gatsby-source-filesystem to 2.1.19 ([2df875f](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/2df875f))
+- **deps:** update gatsby-transformer-sharp to 2.2.13 ([c8bd227](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/c8bd227))
+- **deps:** update read-pkg-up to 6.0.0 ([5531858](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/5531858))
+- **deps:** update semver to 6.3.0 ([32f8bed](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/commit/32f8bed))
+
 # [0.3.0](https://github.com/dslemay/gatsby-themes/tree/master/packages/gatsby-theme-dslemay-core/compare/gatsby-theme-dslemay-core@0.2.0...gatsby-theme-dslemay-core@0.3.0) (2019-04-06)
 
 ### Bug Fixes
